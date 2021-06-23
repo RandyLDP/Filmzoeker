@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>Film Zoeker</title>
+  </head>
+  <body>
+    <nav>
+      <div id="searchBar">
+        <input  type="text" id="seacrBar" name="search" placeholder="Search" value=""/>
+      </div>
+      <div>
+        <input type="radio" id="nieuwsteFilms" name="filter" value="nieuwsteFilms" checked/>
+        <label for="nieuwsteFilms">Nieuwste Films</label>
+      </div>
+
+      <div>
+        <input type="radio" id="avengers" name="filter" value="avengers" />
+        <label for="avengers">Avengers Films</label>
+      </div>
+
+      <div>
+        <input type="radio" id="X-Men" name="filter" value="X-Men" />
+        <label for="X-Men">X-Men Films</label>
+      </div>
+
+      <div>
+        <input type="radio" id="princess" name="filter" value="princess" />
+        <label for="princess">Princess Films</label>
+      </div>
+
+      <div>
+        <input type="radio" id="batman" name="filter" value="batman" />
+        <label for="batman">Batman Films</label>
+      </div>
+    </nav>
+      <main>
+        <ul id="allFilms"></ul>
+      </main>
+    
+
+    <script defer type="text/javascript" src="data.js"></script>
+    <script defer type="text/javascript" src="script.js"></script>
+  </body>
+</html>
