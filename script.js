@@ -2,29 +2,26 @@ const radiobuttons = document.querySelectorAll("input[type='radio']");
 const searchBar = document.getElementById("searchBar");
 const list = document.getElementById("allFilms");
 
-const addMoviesToDom = function (movie) {
-  movie.forEach((movie) => {
-    const list = document.getElementById("allFilms");
-    const newLi = document.createElement("li");
-    const imdbID = movie.imdbID;
-    
+const addMoviesToDom = (movies) => {
+  list.innerHTML = "";
 
-    const addImg = (imdbID) => {
-      const newA = document.createElement("a");
-      newA.href = "https://www.imdb.com/title/" + imdbID + "/";
-      newA.target = "_blank";
-      const newImg = document.createElement("img");
-      newImg.src = movie.Poster;
-     list.appendChild(newLi);
-      newLi.appendChild(newA);
-      newA.appendChild(newImg);
-    };
+      movies.forEach((movie) => {
+          const newLi = document.createElement("li");
+          const imdbID = movie.imdbID;
 
- addImg(imdbID);
-  });
-};
+          const newA = document.createElement("a");
+          newA.href = "https://www.imdb.com/title/" + imdbID + "/";
+          newA.target = "_blank";
 
-addMoviesToDom(movies);
+          const newImg = document.createElement("img");
+          newImg.src = movie.Poster;
+
+          list.appendChild(newLi);
+          newLi.appendChild(newA);
+          newA.appendChild(newImg);
+      });
+  };
+ addMoviesToDom(movies);
 
 
 const filterLatestMovies = () => {
@@ -65,21 +62,21 @@ const addEventListeners = (radiobuttons) => {
       const filter = e.target.value;
      
       switch (filter) {
-        case "recent":
-         filterLatestMovies();
+        case "nieuwsteFilms":
+         filterLatestMovies('nieuwsteFilms');
          break;
 
         case "avengers":
          filterMovies("Avengers");
           break;
-        case "x-men":
-          filterMovies("X-Men");
+        case "X-Men":
+         filterMovies("X-Men");
           break;
         case "princess":
          filterMovies("Princess");
           break;
         case "batman":
-          filterMovies("Batman");
+         filterMovies("Batman");
           break;
         default:
           alert("fout");
